@@ -13,7 +13,13 @@ app.use(bodyParser.json({limit : '50mb'}));
 app.use(express.json());
 app.use(bodyParser.urlencoded({limit:'50mb', extended : false}));
 
-app.get('/', (req, res) => res.send('Hello HetaMVC'))
+app.use(function(err, req, res, next){
+    if (err.status === 404){
+        res.statusCode = 404;
+        res.send('Cant find that file, sorry!');
+    }
+    else next(err);
+});
 
 const serv = require('http').Server(app);
 serv.listen(appConfig._port, (err) => {
@@ -25,6 +31,8 @@ serv.listen(appConfig._port, (err) => {
 });
 
 require('hetamvc').init({
-    scanPath:app_route,	        //scan path  (required)
-    route:express,		            //express route (required)
+    scanPath:app_route,	//path
+    route:app,		//express route
+},{
+    babel_plugin: ["module-resolver",{"alias": {"@": "./"}}]
 });
