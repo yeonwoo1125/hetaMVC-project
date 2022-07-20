@@ -587,7 +587,6 @@ Install it with the command below
 구분 | 링크
 ------ | ------ 
 메뉴얼 | [HetaJs](http://hetajs.com "Heta Js")
-메뉴얼 | [HetaJs](http://hetajs.com "Heta Js")
 
 
 
