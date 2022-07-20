@@ -23,3 +23,8 @@ serv.listen(appConfig._port, (err) => {
 
     return console.log('server is listening on http://localhost:%s/', appConfig._port);
 });
+
+require('hetamvc').init({
+    scanPath:app_route,	        //scan path  (required)
+    route:express,		            //express route (required)
+});
