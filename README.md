@@ -24,7 +24,9 @@ Install it with the command below
     	//logger:require('./logger.config.js'),   //logging
 	    //uploadPath:appConfig._upload.path             //File Upload path
         //forceAwait: true                          //force await mode 
-    });
+    },{
+    babel_plugin: ["module-resolver",{"alias": {"@": "./"}}]
+});
 ```
 
 > scanPath : route path `파일의 최상위 경로` (필수)  
